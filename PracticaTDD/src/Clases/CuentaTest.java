@@ -11,11 +11,14 @@ import org.junit.jupiter.api.Test;
 
 class CuentaTest {
 	
+	static Cuenta ct12345;
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
-		Cuenta ct12345 = Cuenta("12345",50);
+		ct12345 = new Cuenta("12345","manuel",50.0);
 	}
+
+	
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
@@ -32,8 +35,8 @@ class CuentaTest {
 
 	@Test
 	void testIngreso() {
-		ct12345.ingreso(50);
-		AssertEquals(100, ct12345.getSaldo(50));
+		ct12345.ingreso(50.0);
+		assertEquals(100, ct12345.getSaldo());
 	}
 
 	@Test

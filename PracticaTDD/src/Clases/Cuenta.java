@@ -40,7 +40,13 @@ public class Cuenta {
 	}
 
 	public void ingreso(Double importe) {
-		this.setSaldo(100.0);
+		this.saldo= this.saldo+importe;
+	}
+	
+	public void retirar(Double importe) {
+		if(saldo >= importe) {
+			this.saldo = this.saldo-importe;
+		}
 	}
 
 }

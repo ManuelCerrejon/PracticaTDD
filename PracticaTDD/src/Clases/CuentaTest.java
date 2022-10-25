@@ -32,13 +32,13 @@ class CuentaTest {
 
 	@Test
 	void testIngreso() {
-		
+		ct12345.ingreso(50);
+		AssertEquals(100, ct12345.getSaldo(50));
 	}
 
 	@Test
 	void testRetirar() {
-		ct12345.ingreso(50);
-		AssertEquals(100, ct12345.getSaldo(50));
+		
 	}
 
 }

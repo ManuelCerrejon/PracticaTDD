@@ -3,17 +3,16 @@ package Clases;
 import java.util.ArrayList;
 import java.util.List;
 
-import Clases.Movimiento.signo;
 
 public class Cuenta {
 	
 	String mNumero;
 	String nTitular;
-	Double saldo;
+	double saldo;
 	List<Movimiento> mMovimiento;
-	Double limite;
+	double limite;
 	
-	public Cuenta(String mNumero, String nTitular, Double saldo) {
+	public Cuenta(String mNumero, String nTitular, double saldo) {
 		super();
 		this.mNumero = mNumero;
 		this.nTitular = nTitular;
@@ -50,7 +49,7 @@ public class Cuenta {
 		if(importe<0) {
 			throw new Exception("Error valor a ingresar negativo");
 		}
-		Movimiento m = new Movimiento(importe, signo.H, "ingreso");
+		Movimiento m = new Movimiento(importe, "ingreso");
 		this.mMovimiento.add(m);
 		
 		this.setSaldo(this.getSaldo()+importe);
@@ -60,11 +59,11 @@ public class Cuenta {
 		if(importe < 0) {
 			throw new Exception("No se puede retirar saldo negativo");
 		}
-		if(this.getSaldo() < importe) {
+		if(this.getSaldo() - importe < limite) {
 			throw new Exception("Saldo insuficiente");
 		}
 		
-		Movimiento m = new Movimiento(importe, signo.D, "reintegro");
+		Movimiento m = new Movimiento(importe,"reintegro");
 		this.mMovimiento.add(m);
 		
 		this.setSaldo(this.getSaldo()-importe);

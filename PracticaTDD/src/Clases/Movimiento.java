@@ -1,11 +1,10 @@
 package Clases;
 
 public class Movimiento {
-	Double importe;
-	enum signo{D, H};
+	double importe;
 	String detalle;
 	
-	public Movimiento(Double importe,signo sig, String detalle) {
+	public Movimiento(double importe, String detalle) {
 		super();
 		this.importe = importe;
 		this.detalle = detalle;
